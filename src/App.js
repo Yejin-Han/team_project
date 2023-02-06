@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Main from "./components/Main";
 import Calculator from "./components/calculator/Calculator";
+import Memo from "./components/memo/Memo";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/calculator" element={<Calculator />} />
+        <Route path="/memo" element={<Memo />} />
       </Routes>
     </div>
   );

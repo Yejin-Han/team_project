@@ -13,6 +13,14 @@ const Main = () => {
       >
         계산기
       </div>
+      <div
+        className="memo"
+        onClick={() => {
+          navigate("/memo");
+        }}
+      >
+        메모
+      </div>
     </div>
   );
 };
