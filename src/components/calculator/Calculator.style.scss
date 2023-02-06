@@ -1,0 +1,59 @@
+@import "/src/default.scss";
+
+#wrapper {
+  width: 310px;
+  height: 520px;
+  padding: 20px 20px;
+  background-color: lighten($bgColor, 3%);
+  border-radius: 0.7rem;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), -15px -15px 20px #fffb;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+.calc_header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  h2 {
+    font-size: 0.875rem;
+  }
+  button {
+    color: white;
+  }
+}
+.calc_top .screen {
+  height: 6rem;
+  text-align: right;
+  font-size: 3rem;
+}
+.keypads {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.2rem;
+}
+.btn {
+  background-color: lighten($bgColor, 12%);
+  height: 3.5rem;
+  /* box-sizing: border-box;
+  padding: 10px; */
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.25rem;
+}
+.btn:hover {
+  background-color: lighten($bgColor, 8%);
+}
+.equals {
+  background-color: $pointColor2;
+}
+.equals:hover {
+  background-color: darken($pointColor2, 1%);
+}
+.opt {
+  background-color: lighten($bgColor, 8%);
+}
+.opt:hover {
+  background-color: lighten($bgColor, 12%);
+}
