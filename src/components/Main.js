@@ -1,9 +1,20 @@
 import React from "react";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
-  //const navigate = useNavigate();
-  return <div>수정될 메인입니다.</div>;
+  const navigate = useNavigate();
+  return (
+    <div>
+      <div
+        className="calculator"
+        onClick={() => {
+          navigate("/calculator");
+        }}
+      >
+        계산기
+      </div>
+    </div>
+  );
 };
 
 export default Main;
