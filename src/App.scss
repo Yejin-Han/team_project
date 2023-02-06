@@ -1,0 +1,36 @@
+@import "./default.scss";
+
+html,
+body {
+  width: 100vw;
+}
+
+body,
+h1,
+h2,
+div,
+p {
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $bgColor;
+  color: white;
+}
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* box-shadow
+width height
+margin
+font, font-size
+제목 크기 font color 
+버튼 크기 및 글씨 색 크기 cursor pointer 통일
+border-radius */
