@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { CalcContext } from "./CalcContext";
+
 const Screen = () => {
-  return <div className="screen">23467810</div>;
+  const { calc } = useContext(CalcContext);
+  return <div className="screen">{calc.num ? calc.num : calc.res}</div>;
 };
 
 export default Screen;
