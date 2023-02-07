@@ -19,6 +19,8 @@ const Memo = () => {
     setData([newItem, ...data]);
   };
 
+  localStorage.setItem("list", JSON.stringify(data));
+
   const dataDelete = (targetId) => {
     const newMemoList = data.filter((i) => i.id !== targetId);
     setData(newMemoList);
