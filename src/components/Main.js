@@ -21,6 +21,14 @@ const Main = () => {
       >
         메모
       </div>
+      <div
+        className="calendar"
+        onClick={() => {
+          navigate("/calendar");
+        }}
+      >
+        달력
+      </div>
     </div>
   );
 };
