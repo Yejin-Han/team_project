@@ -27,6 +27,13 @@
   height: 6rem;
   text-align: right;
   font-size: 3rem;
+  .expression {
+    font-size: 1rem;
+    color: #999;
+  }
+  .result {
+    font-size: 3rem;
+  }
 }
 .keypads {
   display: grid;
