@@ -6,14 +6,6 @@ const Main = () => {
   return (
     <div>
       <div
-        className="calculator"
-        onClick={() => {
-          navigate("/calculator");
-        }}
-      >
-        계산기
-      </div>
-      <div
         className="memo"
         onClick={() => {
           navigate("/memo");
@@ -28,6 +20,22 @@ const Main = () => {
         }}
       >
         달력
+      </div>
+      <div
+        className="calculator"
+        onClick={() => {
+          navigate("/calculator");
+        }}
+      >
+        계산기
+      </div>
+      <div
+        className="paint"
+        onClick={() => {
+          navigate("/paint");
+        }}
+      >
+        그림판
       </div>
     </div>
   );
