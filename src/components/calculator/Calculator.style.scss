@@ -6,7 +6,8 @@
   padding: 20px 20px;
   background-color: lighten($bgColor, 3%);
   border-radius: 0.7rem;
-  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), -15px -15px 20px #fffb;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1),
+    -15px -15px 20px rgba(255, 255, 255, 0.1);
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
@@ -24,9 +25,14 @@
   }
 }
 .calc_top .screen {
-  height: 6rem;
+  height: 6.5rem;
+  box-sizing: border-box;
+  padding: 1rem;
   text-align: right;
   font-size: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset -5px -5px 20px rgba(255, 255, 255, 0.1);
   .expression {
     font-size: 1rem;
     color: #999;
@@ -48,6 +54,8 @@
   border-radius: 0.5rem;
   color: white;
   font-size: 1.25rem;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.25),
+    -3px -3px 7px rgba(255, 255, 255, 0.1), inset 3px 3px 7px rgba(0, 0, 0, 0.1);
 }
 .btn:hover {
   background-color: lighten($bgColor, 8%);

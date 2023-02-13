@@ -7,6 +7,7 @@ const CalcProvider = ({ children }) => {
     sign: "",
     num: 0,
     res: 0,
+    exp: 0,
   });
 
   const providerValue = {
