@@ -32,6 +32,7 @@ const Keypads = ({ value }) => {
     setCalc({
       ...calc,
       num: numValue,
+      exp: calc.num ? calc.num + numValue : calc.res + numValue,
     });
   };
   const resetClick = () => {
@@ -39,6 +40,7 @@ const Keypads = ({ value }) => {
       sign: "",
       num: 0,
       res: 0,
+      exp: 0,
     });
   };
   const percentClick = () => {
@@ -46,6 +48,7 @@ const Keypads = ({ value }) => {
       num: calc.num / 100,
       res: calc.res / 100,
       sign: "",
+      exp: calc.num ? calc.num + "÷100" : calc.res + "÷100",
     });
   };
   const squareClick = () => {
@@ -53,6 +56,7 @@ const Keypads = ({ value }) => {
       num: calc.num ** 2,
       res: calc.res ** 2,
       sign: "",
+      exp: calc.num ? calc.num + "^2" : calc.res + "^2",
     });
   };
   const sqrtClick = (e) => {
@@ -60,6 +64,7 @@ const Keypads = ({ value }) => {
       num: Number(Math.sqrt(calc.num).toFixed(10)),
       res: Number(Math.sqrt(calc.res).toFixed(10)),
       sign: "",
+      exp: calc.num ? calc.num + value : calc.res + value,
     });
   };
   const signClick = () => {
@@ -67,6 +72,7 @@ const Keypads = ({ value }) => {
       sign: value,
       res: !calc.res && calc.num ? calc.num : calc.res,
       num: 0,
+      exp: !calc.res && calc.num ? calc.num + value : calc.res + value,
     });
   };
   const invertClick = () => {
@@ -74,12 +80,14 @@ const Keypads = ({ value }) => {
       num: calc.num ? calc.num * -1 : 0,
       res: calc.res ? calc.res * -1 : 0,
       sign: "",
+      exp: calc.num ? calc.num + value : calc.res + value,
     });
   };
   const dotClick = () => {
     setCalc({
       ...calc,
       num: !calc.num.toString().includes(".") ? calc.num + value : calc.num, //screen에 .이 없으면 .을 붙여주고 아니면 그대로
+      exp: calc.num ? calc.num + value : calc.res + value,
     });
   };
   const equalsClick = () => {
@@ -97,6 +105,7 @@ const Keypads = ({ value }) => {
         res: math(calc.res, calc.num, calc.sign),
         sign: "",
         num: 0,
+        exp: calc.num ? calc.num + value : calc.res + value,
       });
     }
   };
