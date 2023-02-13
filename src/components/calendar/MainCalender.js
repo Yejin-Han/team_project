@@ -1,4 +1,3 @@
-import "./MainCalender.css";
 import ReactCalender from "./ReactCalender";
 
 function MainCalender() {
