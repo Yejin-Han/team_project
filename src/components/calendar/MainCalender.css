@@ -2,7 +2,7 @@ abbr[title] {
   text-decoration: none;
 }
 
-.highlight {
+.react-calendar__month-view__days__day.highlight {
   background: #eee !important;
   color: #cd7d9f !important;
   font-weight: bold !important;
