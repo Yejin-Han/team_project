@@ -37,6 +37,14 @@ const Main = () => {
       >
         그림판
       </div>
+      <div
+        className="converter"
+        onClick={() => {
+          navigate("/converter");
+        }}
+      >
+        환율계산기
+      </div>
     </div>
   );
 };
