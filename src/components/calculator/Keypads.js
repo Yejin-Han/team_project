@@ -23,71 +23,79 @@ const Keypads = ({ value }) => {
   const { calc, setCalc } = useContext(CalcContext);
   const numClick = () => {
     const valueStr = value.toString();
-    let numValue;
-    if (valueStr === "0" && calc.num === 0) {
-      numValue = "0";
+    let resValue;
+    if (valueStr === "0" && calc.res === 0) {
+      resValue = "0";
     } else {
-      numValue = Number(calc.num + valueStr);
+      resValue = Number(calc.res + valueStr);
     }
     setCalc({
       ...calc,
-      num: numValue,
-      exp: calc.num ? calc.num + numValue : calc.res + numValue,
+      res: resValue,
+      exp: calc.exp.toString().includes("=")
+        ? valueStr
+        : calc.exp !== 0
+        ? calc.exp + valueStr
+        : valueStr,
     });
   };
   const resetClick = () => {
     setCalc({
       sign: "",
-      num: 0,
       res: 0,
       exp: 0,
     });
   };
+  const delClick = () => {
+    setCalc({
+      res: calc.res ? calc.res.slice(0, -1) : 0,
+      sign: "",
+      exp: calc.res ? calc.res.slice(0, -1) : 0,
+    });
+  };
   const percentClick = () => {
     setCalc({
-      num: calc.num / 100,
       res: calc.res / 100,
       sign: "",
-      exp: calc.num ? calc.num + "÷100" : calc.res + "÷100",
+      exp: calc.res ? calc.res + "÷100" : 0,
     });
   };
   const squareClick = () => {
     setCalc({
-      num: calc.num ** 2,
       res: calc.res ** 2,
       sign: "",
-      exp: calc.num ? calc.num + "^2" : calc.res + "^2",
+      exp: calc.res ? calc.res + "^2" : 0,
     });
   };
   const sqrtClick = (e) => {
     setCalc({
-      num: Number(Math.sqrt(calc.num).toFixed(10)),
       res: Number(Math.sqrt(calc.res).toFixed(10)),
       sign: "",
-      exp: calc.num ? calc.num + value : calc.res + value,
+      exp: calc.res ? "√" + calc.res : 0,
     });
   };
   const signClick = () => {
     setCalc({
       sign: value,
-      res: !calc.res && calc.num ? calc.num : calc.res,
-      num: 0,
-      exp: !calc.res && calc.num ? calc.num + value : calc.res + value,
+      res:
+        !calc.res && calc.exp
+          ? Number(calc.exp.toFixed(10))
+          : Number(calc.res.toFixed(10)),
+      exp: !calc.res && calc.exp ? calc.exp + value : calc.res + value,
     });
   };
   const invertClick = () => {
     setCalc({
-      num: calc.num ? calc.num * -1 : 0,
       res: calc.res ? calc.res * -1 : 0,
       sign: "",
-      exp: calc.num ? calc.num + value : calc.res + value,
+      exp: calc.res ? calc.res + "* (-1)" : 0,
     });
   };
   const dotClick = () => {
     setCalc({
       ...calc,
-      num: !calc.num.toString().includes(".") ? calc.num + value : calc.num, //screen에 .이 없으면 .을 붙여주고 아니면 그대로
-      exp: calc.num ? calc.num + value : calc.res + value,
+      res: !calc.exp.toString().includes(".") ? calc.res + value : calc.res, //screen에 .이 없으면 .을 붙여주고 아니면 그대로
+      exp: calc.exp ? calc.exp + value : value,
     });
   };
   const equalsClick = () => {
@@ -102,10 +110,9 @@ const Keypads = ({ value }) => {
         return result[sign](a, b);
       };
       setCalc({
-        res: math(calc.res, calc.num, calc.sign),
+        res: math(calc.res, calc.exp, calc.sign),
         sign: "",
-        num: 0,
-        exp: calc.num ? calc.num + value : calc.res + value,
+        exp: calc.exp ? calc.exp + value : value,
       });
     }
   };
@@ -114,7 +121,7 @@ const Keypads = ({ value }) => {
       //"(": leftParenClick,
       //")": rightParenClick,
       C: resetClick,
-      //del: delClick,
+      del: delClick,
       "%": percentClick,
       "𝓍²": squareClick,
       "√𝓍": sqrtClick,
@@ -141,4 +148,3 @@ const Keypads = ({ value }) => {
 };
 
 export default Keypads;
-/* https://wikimedia.org/api/rest_v1/media/math/render/svg/d62b24be305beff66cba9bfbcc01a362ba390f44 */

@@ -6,7 +6,7 @@ const Screen = () => {
   return (
     <div className="screen">
       <p className="expression">{calc.exp}</p>
-      <p className="result">{calc.num ? calc.num : calc.res}</p>
+      <p className="result">{calc.res}</p>
     </div>
   );
 };

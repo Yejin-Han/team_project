@@ -25,6 +25,7 @@
   }
 }
 .calc_top .screen {
+  width: 100%;
   height: 6.5rem;
   box-sizing: border-box;
   padding: 1rem;
@@ -33,6 +34,8 @@
   border-radius: 0.5rem;
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5),
     inset -5px -5px 20px rgba(255, 255, 255, 0.1);
+  white-space: normal;
+  word-break: break-all;
   .expression {
     font-size: 1rem;
     color: #999;
