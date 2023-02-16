@@ -9,7 +9,7 @@ export default function Currency(props) {
       <select>
         {React.Children.toArray(
           currencyOptions.map((option, key) => (
-            <option key={option} value={option}>
+            <option key={key} value={option}>
               {option}
             </option>
           ))
