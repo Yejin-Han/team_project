@@ -7,8 +7,8 @@ import Keypads from "./Keypads";
 import CalcProvider from "./CalcContext";
 
 const Values = [
-  ["(", ")", "C", "del"],
-  ["%", "𝓍²", "√𝓍", "÷"],
+  ["%", "π", "C", "del"],
+  ["1/𝓍", "𝓍²", "√𝓍", "÷"],
   ["7", "8", "9", "x"],
   ["4", "5", "6", "-"],
   ["1", "2", "3", "+"],

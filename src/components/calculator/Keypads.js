@@ -3,11 +3,11 @@ import { CalcContext } from "./CalcContext";
 
 const getStyleName = (btn) => {
   const symbolClass = {
-    "(": "opt",
-    ")": "opt",
+    "%": "opt",
+    π: "opt",
     C: "opt",
     del: "opt",
-    "%": "opt",
+    "1/𝓍": "opt",
     "𝓍²": "opt",
     "√𝓍": "opt",
     "÷": "opt",
@@ -23,78 +23,87 @@ const Keypads = ({ value }) => {
   const { calc, setCalc } = useContext(CalcContext);
   const numClick = () => {
     const valueStr = value.toString();
-    let resValue;
-    if (valueStr === "0" && calc.res === 0) {
-      resValue = "0";
+    let numValue;
+    if (valueStr === "0" && calc.num === 0) {
+      numValue = "0";
     } else {
-      resValue = Number(calc.res + valueStr);
+      numValue = Number(calc.num + valueStr);
     }
     setCalc({
       ...calc,
-      res: resValue,
-      exp: calc.exp.toString().includes("=")
-        ? valueStr
-        : calc.exp !== 0
-        ? calc.exp + valueStr
-        : valueStr,
+      num: numValue,
+      exp: calc.exp ? valueStr : calc.exp + valueStr,
+      /* calc.exp.toString().includes("=") ? valueStr : calc.exp !== 0 ? calc.exp + valueStr : valueStr, */
+    });
+  };
+  const percentClick = () => {
+    setCalc({
+      num: calc.num / 100,
+      res: calc.res / 100,
+      sign: "",
+      exp: calc.exp ? calc.num + "÷100" : 0,
+    });
+  };
+  const piClick = () => {
+    setCalc({
+      num: calc.num ? (calc.num * Math.PI).toFixed(10) : Math.PI.toFixed(10),
+      res: calc.res ? (calc.res * Math.PI).toFixed(10) : Math.PI.toFixed(10),
+      sign: "",
+      exp: calc.num ? calc.num + value : value,
     });
   };
   const resetClick = () => {
     setCalc({
       sign: "",
+      num: 0,
       res: 0,
       exp: 0,
     });
   };
   const delClick = () => {
     setCalc({
-      res: calc.res ? calc.res.slice(0, -1) : 0,
+      num: calc.num ? calc.num.toString().slice(0, -1) : 0,
+      res: calc.res ? calc.res.toString().slice(0, -1) : 0,
       sign: "",
-      exp: calc.res ? calc.res.slice(0, -1) : 0,
-    });
-  };
-  const percentClick = () => {
-    setCalc({
-      res: calc.res / 100,
-      sign: "",
-      exp: calc.res ? calc.res + "÷100" : 0,
+      exp: calc.exp ? calc.exp.toString().slice(0, -1) : 0,
     });
   };
   const squareClick = () => {
     setCalc({
+      num: calc.num ** 2,
       res: calc.res ** 2,
       sign: "",
-      exp: calc.res ? calc.res + "^2" : 0,
+      exp: calc.num ? calc.num + "^2" : calc.res + "^2",
     });
   };
   const sqrtClick = (e) => {
     setCalc({
+      num: Number(Math.sqrt(calc.num).toFixed(10)),
       res: Number(Math.sqrt(calc.res).toFixed(10)),
       sign: "",
-      exp: calc.res ? "√" + calc.res : 0,
+      exp: calc.num ? "√" + calc.num : "√" + calc.res,
     });
   };
   const signClick = () => {
     setCalc({
       sign: value,
-      res:
-        !calc.res && calc.exp
-          ? Number(calc.exp.toFixed(10))
-          : Number(calc.res.toFixed(10)),
-      exp: !calc.res && calc.exp ? calc.exp + value : calc.res + value,
+      res: !calc.res && calc.num ? calc.num : calc.res,
+      num: 0,
+      exp: !calc.res && calc.num ? calc.num + value : calc.res + value,
     });
   };
   const invertClick = () => {
     setCalc({
+      num: calc.num ? calc.num * -1 : 0,
       res: calc.res ? calc.res * -1 : 0,
       sign: "",
-      exp: calc.res ? calc.res + "* (-1)" : 0,
+      exp: calc.num ? calc.num + "* (-1)" : calc.res + "* (-1)",
     });
   };
   const dotClick = () => {
     setCalc({
       ...calc,
-      res: !calc.exp.toString().includes(".") ? calc.res + value : calc.res, //screen에 .이 없으면 .을 붙여주고 아니면 그대로
+      num: !calc.num.toString().includes(".") ? calc.num + value : calc.num, //screen에 .이 없으면 .을 붙여주고 아니면 그대로
       exp: calc.exp ? calc.exp + value : value,
     });
   };
@@ -110,19 +119,19 @@ const Keypads = ({ value }) => {
         return result[sign](a, b);
       };
       setCalc({
-        res: math(calc.res, calc.exp, calc.sign),
+        res: Number(math(calc.res, calc.num, calc.sign).toFixed(10)),
         sign: "",
+        num: 0,
         exp: calc.exp ? calc.exp + value : value,
       });
     }
   };
   const handleClick = () => {
     const clickedValue = {
-      //"(": leftParenClick,
-      //")": rightParenClick,
+      "%": percentClick,
+      π: piClick,
       C: resetClick,
       del: delClick,
-      "%": percentClick,
       "𝓍²": squareClick,
       "√𝓍": sqrtClick,
       "÷": signClick,
