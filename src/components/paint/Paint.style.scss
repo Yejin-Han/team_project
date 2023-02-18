@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+}
+.paint_tools {
+  width: 28%;
+  .tool_list {
+    list-style: none;
+    display: flex;
+    button {
+      padding: 2px 3px;
+    }
+  }
+  .color_list {
+    display: flex;
+    .color_grid_wrapper {
+      display: flex;
+      flex-flow: row wrap;
+    }
+  }
+  .tool_title {
+    width: 100%;
+    border-top: 1px solid #ededed;
+    text-align: center;
+  }
+}
+
+.color_grid {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #444;
+  border-radius: 50%;
+  margin: 2px;
+}

@@ -9,6 +9,8 @@ body,
 h1,
 h2,
 div,
+ul,
+li,
 p {
   margin: 0;
   padding: 0;
@@ -22,6 +24,7 @@ body {
   color: white;
 }
 button {
+  padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;

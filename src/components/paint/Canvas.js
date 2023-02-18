@@ -17,7 +17,7 @@ const Canvas = ({ width, height }) => {
 
     /* ctx.fillStyle = color;
     ctx.beginPath();
-    ctx.arc(start.x, start.y, 2, 0, Math.PI * 2);
+    ctx.arc(start.x, start.y, 1, 0, Math.PI * 2);
     ctx.fill(); */
   };
 
