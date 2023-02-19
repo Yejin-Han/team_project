@@ -33,15 +33,15 @@ const Colors = ({ drawing, handleDrawing }) => {
     ></div>
   ));
   return (
-    <>
-      <div className="paint_tools">
+    <div className="paint_tools">
+      <div className="ways">
         <div className="color_list">
           <div className="color_grid_wrapper">{colorGrid}</div>
         </div>
-        <p className="tool_title">Colors</p>
+        <input type="color" className="color_picker" />
       </div>
-      <input type="color"></input>
-    </>
+      <p className="tool_title">Colors</p>
+    </div>
   );
 };
 

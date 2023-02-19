@@ -22,20 +22,20 @@ const Main = () => {
         달력
       </div>
       <div
-        className="calculator"
-        onClick={() => {
-          navigate("/calculator");
-        }}
-      >
-        계산기
-      </div>
-      <div
         className="paint"
         onClick={() => {
           navigate("/paint");
         }}
       >
         그림판
+      </div>
+      <div
+        className="calculator"
+        onClick={() => {
+          navigate("/calculator");
+        }}
+      >
+        계산기
       </div>
       <div
         className="converter"

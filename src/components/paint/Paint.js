@@ -6,7 +6,7 @@ const Paint = () => {
   return (
     <div id="main_paint">
       <Tools />
-      <Canvas width={800} height={600} />
+      <Canvas width={900} height={600} />
     </div>
   );
 };

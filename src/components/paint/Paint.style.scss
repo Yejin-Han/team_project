@@ -1,26 +1,85 @@
+@import "/src/default.scss";
+
+.top_page {
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  background: $pointColor1;
+  border-radius: 8px 8px 0 0;
+  color: #fff;
+  p {
+    margin-left: 10px;
+    display: inline-block;
+    line-height: 30px;
+  }
+  button {
+    color: #fff;
+    margin-right: 10px;
+  }
+}
 .header {
   display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  padding: 10px 20px;
 }
 .paint_tools {
-  width: 28%;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  margin-left: 20px;
+  padding-right: 20px;
+  &:nth-of-type(1) {
+    width: 10%;
+    margin-left: 0;
+  }
+  &:nth-of-type(2) {
+    width: 10%;
+  }
+  &:nth-of-type(3) {
+    width: 34%;
+  }
   .tool_list {
+    height: 70%;
     list-style: none;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
     button {
       padding: 2px 3px;
     }
   }
-  .color_list {
+  .select_wrapper {
+    height: 70%;
     display: flex;
-    .color_grid_wrapper {
+    align-items: center;
+    #brush_weight {
+      width: 100%;
+    }
+  }
+  .ways {
+    display: flex;
+    align-items: center;
+    height: 70%;
+    .color_list {
       display: flex;
-      flex-flow: row wrap;
+      .color_grid_wrapper {
+        display: flex;
+        flex-flow: row wrap;
+      }
+    }
+    .color_picker {
+      width: 100px;
+      height: 40px;
+      border: none;
+      box-sizing: content-box;
+      background: none;
+      margin: 0;
+      padding: 0;
     }
   }
   .tool_title {
     width: 100%;
-    border-top: 1px solid #ededed;
     text-align: center;
+    font-size: 14px;
   }
 }
 
