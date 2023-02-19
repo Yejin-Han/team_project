@@ -10,9 +10,15 @@ const Tools = () => {
     color: "black",
   });
 
-  const handleDrawing = (updateItem, type) => {
+  const handleDrawing = (updatedItem, type) => {
     const newDrawing = { ...drawing };
-    newDrawing[type] = updateItem;
+    if (updatedItem === "eraser") {
+      newDrawing[color] = "white";
+      setDrawing(newDrawing);
+    } else {
+      newDrawing[type] = updatedItem;
+      setDrawing(newDrawing);
+    }
     console.log(newDrawing);
   };
 
@@ -20,7 +26,7 @@ const Tools = () => {
     <div className="header">
       <Items handleDrawing={handleDrawing} />
       <Brush handleDrawing={handleDrawing} />
-      <Colors drawing={drawing} />
+      <Colors drawing={drawing} handleDrawing={handleDrawing} />
     </div>
   );
 };

@@ -21,16 +21,17 @@ const colorList = [
   "lavender",
 ];
 
-const colorGrid = colorList.map((color, idx) => (
-  <div
-    key={idx}
-    className="color_grid"
-    style={{ backgroundColor: `${color}` }}
-    onClick={() => {}}
-  ></div>
-));
-
-const Colors = () => {
+const Colors = ({ drawing, handleDrawing }) => {
+  const colorGrid = colorList.map((color, idx) => (
+    <div
+      key={idx}
+      className="color_grid"
+      style={{ backgroundColor: `${color}` }}
+      onClick={() => {
+        handleDrawing(color, "color");
+      }}
+    ></div>
+  ));
   return (
     <>
       <div className="paint_tools">
