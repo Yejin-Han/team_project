@@ -9,9 +9,10 @@ const Brush = ({ handleDrawing }) => {
           }}
         >
           <option value="0">🖌️</option>
-          <option>Thin</option>
-          <option>Normal</option>
-          <option>Thick</option>
+          <option value="1">1px</option>
+          <option value="3">3px</option>
+          <option value="5">5px</option>
+          <option value="8">8px</option>
         </select>
       </div>
       <p className="tool_title">Weight</p>

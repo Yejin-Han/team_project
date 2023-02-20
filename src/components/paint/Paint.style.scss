@@ -1,5 +1,10 @@
 @import "/src/default.scss";
 
+#main_paint {
+  width: 900px;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1),
+    -15px -15px 20px rgba(255, 255, 255, 0.1);
+}
 .top_page {
   height: 30px;
   display: flex;
@@ -53,6 +58,7 @@
     align-items: center;
     #brush_weight {
       width: 100%;
+      cursor: pointer;
     }
   }
   .ways {
@@ -64,16 +70,25 @@
       .color_grid_wrapper {
         display: flex;
         flex-flow: row wrap;
+        .color_grid {
+          width: 16px;
+          height: 16px;
+          border: 1px solid #444;
+          border-radius: 50%;
+          margin: 2px;
+          cursor: pointer;
+        }
       }
     }
     .color_picker {
       width: 100px;
       height: 40px;
+      display: flex;
       border: none;
-      box-sizing: content-box;
       background: none;
       margin: 0;
       padding: 0;
+      cursor: pointer;
     }
   }
   .tool_title {
@@ -82,11 +97,19 @@
     font-size: 14px;
   }
 }
-
-.color_grid {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #444;
-  border-radius: 50%;
-  margin: 2px;
+.btn_wrapper {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  .clear,
+  .save,
+  .open {
+    width: 60px;
+    height: 30px;
+    background: $pointColor1;
+    color: #fff;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
 }

@@ -1,10 +1,17 @@
+import { useState } from "react";
 import { useOnDraw } from "./Hooks";
 
-const canvasStyle = {
-  backgroundColor: "#fff",
-};
+const Canvas = ({ width, height, drawing }) => {
+  const [canvasStyle, setCanvasStyle] = useState({
+    backgroundColor: "white",
+  });
+  const [lineStyle, setLineStyle] = useState({
+    color: "black",
+    width: 2,
+  });
 
-const Canvas = ({ width, height }) => {
+  const { tool, weight, color } = drawing;
+
   const drawLine = (start, end, ctx, color, width) => {
     start = start ?? end;
     ctx.beginPath();
@@ -14,15 +21,31 @@ const Canvas = ({ width, height }) => {
     ctx.moveTo(start.x, start.y);
     ctx.lineTo(end.x, end.y);
     ctx.stroke();
+  };
 
-    /* ctx.fillStyle = color;
-    ctx.beginPath();
-    ctx.arc(start.x, start.y, 1, 0, Math.PI * 2);
-    ctx.fill(); */
+  const painted = () => {
+    if (tool === "paintBucket") {
+      const newItem = {
+        backgroundColor: color,
+      };
+      setCanvasStyle(newItem);
+    }
   };
 
   const onDraw = (ctx, points, prevPoints) => {
-    drawLine(prevPoints, points, ctx, "#000", 5);
+    const newItem = {
+      color: color,
+      width: weight,
+    };
+    setLineStyle(newItem);
+    if (tool === "eraser") {
+      const newItem = {
+        color: "white",
+        width: weight,
+      };
+      setLineStyle(newItem);
+    }
+    drawLine(prevPoints, points, ctx, lineStyle.color, lineStyle.width);
   };
 
   const { onMouseDown, setCanvasRef } = useOnDraw(onDraw);
@@ -32,6 +55,7 @@ const Canvas = ({ width, height }) => {
       width={width}
       height={height}
       style={canvasStyle}
+      onClick={painted}
       onMouseDown={onMouseDown}
       ref={setCanvasRef}
     ></canvas>

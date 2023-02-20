@@ -21,7 +21,7 @@ const colorList = [
   "lavender",
 ];
 
-const Colors = ({ drawing, handleDrawing }) => {
+const Colors = ({ handleDrawing }) => {
   const colorGrid = colorList.map((color, idx) => (
     <div
       key={idx}
@@ -38,7 +38,13 @@ const Colors = ({ drawing, handleDrawing }) => {
         <div className="color_list">
           <div className="color_grid_wrapper">{colorGrid}</div>
         </div>
-        <input type="color" className="color_picker" />
+        <input
+          type="color"
+          className="color_picker"
+          onChange={(e) => {
+            handleDrawing(e.target.value, "color");
+          }}
+        />
       </div>
       <p className="tool_title">Colors</p>
     </div>

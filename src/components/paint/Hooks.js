@@ -1,5 +1,20 @@
 import { useEffect, useRef } from "react";
 
+export const useEraseCanvas = () => {
+  const canvasRef = useRef(null);
+  const eraseCanvas = () => {
+    const canvas = canvasRef.current;
+    if (canvas) {
+      const ctx = canvas.getContext("2d");
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#fff";
+    }
+  };
+  return {
+    eraseCanvas,
+  };
+};
+
 export const useOnDraw = (onDraw) => {
   const canvasRef = useRef(null);
   const prevPointsRef = useRef(null);
