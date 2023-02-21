@@ -30,6 +30,7 @@ const Colors = ({ handleDrawing }) => {
       onClick={() => {
         handleDrawing(color, "color");
       }}
+      title={color}
     ></div>
   ));
   return (
