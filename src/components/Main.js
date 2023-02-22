@@ -38,9 +38,9 @@ const Main = () => {
         계산기
       </div>
       <div
-        className="converter"
+        className="currency"
         onClick={() => {
-          navigate("/converter");
+          navigate("/currency");
         }}
       >
         환율계산기

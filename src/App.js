@@ -6,7 +6,7 @@ import Calculator from "./components/calculator/Calculator";
 import Memo from "./components/memo/Memo";
 import MainCalender from "./components/calendar/MainCalender";
 import Paint from "./components/paint/Paint";
-import Converter from "./components/converter/Converter";
+import Currency from "./components/converter/Currency";
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
         <Route path="/calendar" element={<MainCalender />} />
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/paint" element={<Paint />} />
-        <Route path="/converter" element={<Converter />} />
+        <Route path="/currency" element={<Currency />} />
       </Routes>
     </div>
   );
