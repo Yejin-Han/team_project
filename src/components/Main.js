@@ -45,6 +45,14 @@ const Main = () => {
       >
         환율계산기
       </div>
+      <div
+        className="weather"
+        onClick={() => {
+          navigate("/weather");
+        }}
+      >
+        날씨
+      </div>
     </div>
   );
 };

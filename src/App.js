@@ -7,6 +7,7 @@ import Memo from "./components/memo/Memo";
 import MainCalender from "./components/calendar/MainCalender";
 import Paint from "./components/paint/Paint";
 import Currency from "./components/converter/Currency";
+import Weather from "./components/weather/Weather";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/paint" element={<Paint />} />
         <Route path="/currency" element={<Currency />} />
+        <Route path="/weather" element={<Weather />} />
       </Routes>
     </div>
   );

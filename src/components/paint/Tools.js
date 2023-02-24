@@ -142,7 +142,7 @@ const Tools = () => {
             navigate("/");
           }}
         >
-          X
+          ✕
         </button>
       </div>
       <div className="header">
