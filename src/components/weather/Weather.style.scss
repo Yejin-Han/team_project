@@ -1,0 +1,30 @@
+.weather_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    color: white;
+  }
+}
+.weather_content {
+  padding: 20px;
+  background: lightskyblue;
+}
+.result {
+  margin-top: 60px;
+  padding: 10px;
+  background: lightpink;
+  border-radius: 8px;
+  .city {
+    font-size: 24px;
+  }
+  .temperature {
+    font-size: 60px;
+    margin-top: 8px;
+  }
+  .sky {
+    font-size: 20px;
+    margin-top: 8px;
+    text-align: right;
+  }
+}
