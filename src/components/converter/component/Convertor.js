@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card } from "antd";
+import { useState } from "react";
+// import "./Convertor.css";
 
 const Convertor = (props) => {
   const {
@@ -10,6 +10,8 @@ const Convertor = (props) => {
     amount,
     result,
     date,
+    Card,
+    onSwap,
   } = props;
 
   const [convertTo, setConvertTo] = useState(currencyOptions[1]);
@@ -24,8 +26,7 @@ const Convertor = (props) => {
   };
 
   const swapHandler = (e) => {
-    e.preventDefault();
-    onChangeCurrency({ target: { value: convertTo } });
+    onSwap(e);
     setConvertTo(firstCurrency);
   };
 
@@ -64,7 +65,7 @@ const Convertor = (props) => {
                 </form>
                 <form>
                   <input
-                    disabled
+                    readOnly
                     value={
                       amount === ""
                         ? "0"
