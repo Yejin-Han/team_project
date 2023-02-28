@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import "./Weather.style.scss";
-import GetAPI from "./GetAPI";
+import Search from "./Search";
 
 const Weather = () => {
   const navigate = useNavigate();
+  const handleOnSearchChange = (searchData) => {
+    console.log(searchData);
+  };
   return (
-    <>
+    <div className="weather_container">
       <div className="weather_top">
         <h2>세계날씨 🌤️</h2>
         <button
@@ -18,9 +21,9 @@ const Weather = () => {
         </button>
       </div>
       <div className="weather_content">
-        <GetAPI />
+        <Search onSearchChange={handleOnSearchChange} />
       </div>
-    </>
+    </div>
   );
 };
 

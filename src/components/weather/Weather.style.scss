@@ -1,3 +1,12 @@
+@import "/src/default.scss";
+
+.weather_container {
+  max-width: 1080px;
+  width: 1080px;
+  background-color: lighten($bgColor, 7%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.7rem;
+}
 .weather_top {
   display: flex;
   justify-content: space-between;
@@ -10,7 +19,7 @@
   padding: 20px;
   background: lightskyblue;
 }
-.result {
+.weather_result {
   margin-top: 60px;
   padding: 10px;
   background: lightpink;
