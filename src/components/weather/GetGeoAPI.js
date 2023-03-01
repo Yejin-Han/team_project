@@ -1,6 +1,9 @@
-const GetAPI = (location) => {
-  const API_key = "fdce841950d4af39af9fcae51989c200";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_key}`;
+export const geoAPIOptions = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "ae7dea7398mshf5b0737b33b5a29p15bc69jsn785430c83fd7",
+    "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com",
+  },
 };
 
-export default GetAPI;
+export const geoURL = `https://wft-geo-db.p.rapidapi.com/v1/geo`;
