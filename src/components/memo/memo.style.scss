@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&family=Noto+Sans+KR&display=swap");
+
+.main_memo {
+  font-family: "Gaegu", cursive;
+  padding: 0;
+  margin: 0;
+  background: #cb8a90;
+  width: 600px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.MemoEditor {
+  width: 500px;
+  height: auto;
+  padding: 30px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.MemoEditor h2 {
+  color: #fff;
+}
+
+.MemoEditor input,
+.MemoEditor textarea,
+.MemoEditor button {
+  width: 400px;
+  margin-top: 20px;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.MemoEditor textarea {
+  height: 150px;
+}
+
+.MemoEditor button {
+  cursor: pointer;
+  background: #f6b99d;
+  color: #fff;
+}
+
+/* memolist */
+
+.MemoList {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.MemoItem {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 20px;
+  background: #faf0e4;
+  border-radius: 15px;
+  position: relative;
+  text-align: left;
+}
+
+.MemoItem span {
+  color: #cb8a90;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.MemoItem .content {
+  /* text-align: left; */
+  color: #333;
+}
+
+.MemoItem .info {
+  /* text-align: left; */
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.MemoItem .date {
+  font-size: 14px;
+}
+
+.MemoItem .btn {
+  color: #fff;
+  display: inline-block;
+  cursor: pointer;
+  background: #f6b99d;
+  padding: 3px 8px;
+  margin: 20px 5px 0px 0px;
+  font-size: 14px;
+  border-radius: 7px;
+}
+
+.MemoItem textarea {
+  width: 300px;
+}
