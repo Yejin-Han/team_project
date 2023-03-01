@@ -1,23 +1,27 @@
 import { useState } from "react";
-import axios from "axios";
 import { AsyncPaginate } from "react-select-async-paginate";
+import { geoAPIOptions, geoURL } from "./GetGeoAPI";
 
 const Search = ({ onSearchChange }) => {
-  const API_key = "fdce841950d4af39af9fcae51989c200";
   const [search, setSearch] = useState(null);
 
-  const loadOptions = async (inputValue) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${API_key}`;
-    try {
-      const data = await axios({
-        method: "get",
-        url: url,
-      });
-      console.log(data);
-      setResult(data);
-    } catch (err) {
-      console.log(err);
-    }
+  const loadOptions = (inputValue) => {
+    return fetch(
+      `${geoURL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
+      geoAPIOptions
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        return {
+          options: res.data.map((city) => {
+            return {
+              value: `${city.latitude} ${city.longitude}`,
+              label: `${city.name}, ${city.countryCode}`,
+            };
+          }),
+        };
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleOnChange = (searchData) => {
