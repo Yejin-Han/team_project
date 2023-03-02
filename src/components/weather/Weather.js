@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./Weather.style.scss";
 import Search from "./Search";
+import CurrentWeather from "./CurrentWeather";
 
 const Weather = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Weather = () => {
       </div>
       <div className="weather_content">
         <Search onSearchChange={handleOnSearchChange} />
+        <CurrentWeather />
       </div>
     </div>
   );
