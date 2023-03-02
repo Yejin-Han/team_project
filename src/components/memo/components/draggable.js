@@ -8,7 +8,7 @@ import React, {
 import "./draggable.css";
 import { debounce } from "underscore";
 
-function Draggable({ children, handleRef, onMove, x, y }) {
+function Draggable({ children, handleRef, onMove, x = 0, y = 0 }) {
   const dragRef = useRef(null);
   const initialX = useRef(0);
   const initialY = useRef(0);
@@ -26,14 +26,16 @@ function Draggable({ children, handleRef, onMove, x, y }) {
     },
     [Move]
   );
+
   const removeEvents = useCallback(() => {
     document.removeEventListener("mousemove", onMouseMove);
     document.removeEventListener("mouseup", removeEvents);
     document.body.removeEventListener("mouseleave", removeEvents);
   }, [onMouseMove]);
+
   const onMouseDown = useCallback(
     (event) => {
-      const { left, top } = dragRef.current.getBoundingClientReact();
+      const { left, top } = dragRef.current.getBoundingClientRect();
       initialX.current = event.clientX - left;
       initialY.current = event.clientY - top;
       document.addEventListener("mousemove", onMouseMove);
