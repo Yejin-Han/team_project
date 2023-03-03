@@ -11,7 +11,7 @@ const Weather = () => {
   return (
     <div className="weather_container">
       <div className="weather_top">
-        <h2>세계날씨 🌤️</h2>
+        <h2>🌎 세계날씨</h2>
         <button
           type="button"
           onClick={() => {
