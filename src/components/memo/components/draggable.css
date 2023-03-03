@@ -1,8 +1,0 @@
-body {
-    display: block;
-}
-
-.draggable {
-    user-select: none;
-    position: absolute;
-}
