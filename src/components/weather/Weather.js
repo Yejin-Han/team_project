@@ -2,11 +2,12 @@ import { useNavigate } from "react-router-dom";
 import "./Weather.style.scss";
 import Search from "./Search";
 import CurrentWeather from "./CurrentWeather";
+import { weatherURL, weatherAPIKey } from "./GetAPI";
 
 const Weather = () => {
   const navigate = useNavigate();
   const handleOnSearchChange = (searchData) => {
-    console.log(searchData);
+    const [lat, lon] = searchData.value.split(" ");
   };
   return (
     <div className="weather_container">

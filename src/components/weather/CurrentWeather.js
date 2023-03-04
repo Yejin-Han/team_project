@@ -11,24 +11,24 @@ const CurrentWeather = () => {
       <div className="curr_bottom">
         <p className="temperature">18 °</p>
         <div className="details">
-          <div className="parameter_row">
-            <span className="parameter_label">세부날씨</span>
+          <div className="param_row">
+            <span className="param_label">세부날씨</span>
           </div>
-          <div className="parameter_row">
-            <span className="parameter_label">체감온도</span>
-            <span className="parameter_value">22°</span>
+          <div className="param_row">
+            <span className="param_label">체감온도</span>
+            <span className="param_value">22°</span>
           </div>
-          <div className="parameter_row">
-            <span className="parameter_label">습도</span>
-            <span className="parameter_value">15%</span>
+          <div className="param_row">
+            <span className="param_label">습도</span>
+            <span className="param_value">15%</span>
           </div>
-          <div className="parameter_row">
-            <span className="parameter_label">바람</span>
-            <span className="parameter_value">2m/s</span>
+          <div className="param_row">
+            <span className="param_label">바람</span>
+            <span className="param_value">2m/s</span>
           </div>
-          <div className="parameter_row">
-            <span className="parameter_label">기압</span>
-            <span className="parameter_value">15hPa</span>
+          <div className="param_row">
+            <span className="param_label">기압</span>
+            <span className="param_value">15hPa</span>
           </div>
         </div>
       </div>
