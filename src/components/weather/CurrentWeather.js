@@ -1,15 +1,19 @@
-const CurrentWeather = () => {
+const CurrentWeather = ({ data }) => {
   return (
     <div className="curr_weather">
       <div className="curr_top">
         <div>
-          <p className="city">Seoul</p>
-          <p className="weather_description">Sunny</p>
+          <p className="city">{data.city}</p>
+          <p className="weather_description">{data.weather[0].description}</p>
         </div>
-        <img src="img/weather/01d.png" alt="weather" className="weather_icon" />
+        <img
+          src={`img/weather/${data.weather[0].icon}.png`}
+          alt="weather"
+          className="weather_icon"
+        />
       </div>
       <div className="curr_bottom">
-        <p className="temperature">18 °</p>
+        <p className="temperature">{data.main.temp} °</p>
         <div className="details">
           <div className="param_row">
             <span className="param_label">세부날씨</span>

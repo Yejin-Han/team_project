@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Weather.style.scss";
 import Search from "./Search";
@@ -6,9 +7,29 @@ import { weatherURL, weatherAPIKey } from "./GetAPI";
 
 const Weather = () => {
   const navigate = useNavigate();
+  const [current, setCurrent] = useState(null);
+  const [forecast, setForecast] = useState(null);
+
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
+    try {
+      const currentData = fetch(
+        `${weatherURL}/weather?lat=${lat}&lon=${lon}&appid=${weatherAPIKey}&units=metric`
+      );
+      const forecastData = fetch(
+        `${weatherURL}/forecast?lat=${lat}&lon=${lon}&appid=${weatherAPIKey}&units=metric`
+      );
+      Promise.all([currentData, forecastData]).then(async (res) => {
+        const currentRes = await res[0].json();
+        const forecastRes = await res[1].json();
+        setCurrent({ city: searchData.label, ...currentRes });
+        setForecast({ city: searchData.label, ...forecastRes });
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
+  console.log(current, forecast);
   return (
     <div className="weather_container">
       <div className="weather_top">
@@ -24,7 +45,7 @@ const Weather = () => {
       </div>
       <div className="weather_content">
         <Search onSearchChange={handleOnSearchChange} />
-        <CurrentWeather />
+        {current && <CurrentWeather data={current} />}
       </div>
     </div>
   );
