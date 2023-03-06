@@ -13,26 +13,28 @@ const CurrentWeather = ({ data }) => {
         />
       </div>
       <div className="curr_bottom">
-        <p className="temperature">{data.main.temp} °</p>
+        <p className="temperature">{Math.round(data.main.temp)} °</p>
         <div className="details">
           <div className="param_row">
             <span className="param_label">세부날씨</span>
           </div>
           <div className="param_row">
             <span className="param_label">체감온도</span>
-            <span className="param_value">22°</span>
+            <span className="param_value">
+              {Math.round(data.main.feels_like)}°
+            </span>
           </div>
           <div className="param_row">
             <span className="param_label">습도</span>
-            <span className="param_value">15%</span>
+            <span className="param_value">{data.main.humidity}%</span>
           </div>
           <div className="param_row">
             <span className="param_label">바람</span>
-            <span className="param_value">2m/s</span>
+            <span className="param_value">{data.wind.speed}m/s</span>
           </div>
           <div className="param_row">
             <span className="param_label">기압</span>
-            <span className="param_value">15hPa</span>
+            <span className="param_value">{data.main.pressure}hPa</span>
           </div>
         </div>
       </div>
