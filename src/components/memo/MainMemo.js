@@ -13,14 +13,21 @@ function MainMemo({ store }) {
     (id, width, height) => store.setWidthHeight(id, width, height),
     [store]
   );
+  const SetPosition = useCallback(
+    (id, x, y) => store.setPosition(id, x, y),
+    [store]
+  );
+  const Delete = useCallback((id) => store.removeMemo(id), [store]);
   return (
     <>
       {store.memos.map((memo) => (
         <Memo
           key={memo.id}
           item={memo}
+          Delete={Delete}
           Edit={Edit}
           SetWidthHeight={SetWidthHeight}
+          SetPosition={SetPosition}
         />
       ))}
       <AddIcon

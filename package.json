@@ -25,6 +25,7 @@
     "react-router-dom": "^6.8.0",
     "react-scripts": "5.0.1",
     "react-select-async-paginate": "^0.7.2",
+    "resize-observer": "^1.0.4",
     "underscore": "^1.13.6",
     "uuid": "^9.0.0",
     "web-vitals": "^2.1.4"
