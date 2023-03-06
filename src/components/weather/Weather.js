@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Weather.style.scss";
 import Search from "./Search";
 import CurrentWeather from "./CurrentWeather";
+import Forecast from "./Forecast";
 import { weatherURL, weatherAPIKey } from "./GetAPI";
 
 const Weather = () => {
@@ -46,6 +47,7 @@ const Weather = () => {
       <div className="weather_content">
         <Search onSearchChange={handleOnSearchChange} />
         {current && <CurrentWeather data={current} />}
+        {forecast && <Forecast data={forecast} />}
       </div>
     </div>
   );

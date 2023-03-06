@@ -25,27 +25,13 @@
 }
 
 /* Search.js */
-.weather_result {
-  margin-top: 60px;
-  padding: 10px;
-  border-radius: 8px;
-  .city {
-    font-size: 24px;
-  }
-  .temperature {
-    font-size: 60px;
-    margin-top: 8px;
-  }
-  .sky {
-    font-size: 20px;
-    margin-top: 8px;
-    text-align: right;
-  }
+.search {
+  color: #222;
 }
 
 /* CurrentWeather.js */
 .curr_weather {
-  width: 300px;
+  width: 340px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   box-shadow: 10px -2px 20px 2px rgba(0, 0, 0, 0.3);
@@ -79,7 +65,7 @@
       margin: 10px 0;
     }
     .details {
-      width: 50%;
+      width: 55%;
       .param_row {
         display: flex;
         justify-content: space-between;
@@ -95,5 +81,30 @@
         }
       }
     }
+  }
+}
+
+/* Forecast.js */
+.forecast_title {
+  font-size: 23px;
+  font-weight: 700;
+}
+.forecast_accordion {
+  .time_item {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    height: 40px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 5px 20px;
+  }
+  .icon_s {
+    width: 40px;
+  }
+  .times {
+    flex: 1 1 0;
+    margin-left: 15px;
   }
 }
