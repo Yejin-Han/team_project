@@ -53,7 +53,8 @@ function Memo({ item, Delete, Edit, SetPosition, SetWidthHeight }) {
 
   return (
     <Draggable
-      handleRef={handleRef}
+      handle=".memo-menu"
+      nodeRef={memoContainer}
       x={item.x}
       y={item.y}
       onMove={onChangePosition}
@@ -63,7 +64,7 @@ function Memo({ item, Delete, Edit, SetPosition, SetWidthHeight }) {
         style={{ width: `${item.width}px`, height: `${item.height}px` }}
         ref={memoContainer}
       >
-        <div className="menu">
+        <div className="memo-menu" ref={handleRef}>
           <DragHandleIcon
             ref={handleRef}
             sx={{ cursor: "move", fontSize: "25px" }}
@@ -77,7 +78,7 @@ function Memo({ item, Delete, Edit, SetPosition, SetWidthHeight }) {
           className="memo-text-area"
           defaultValue={item.content}
           name="txt"
-          placeholder="Enter memo here"
+          placeholder="텍스트를 입력하세요"
           onChange={onChangeMemo}
         ></textarea>
       </div>
