@@ -30,17 +30,36 @@ function MainMemo({ store }) {
           SetPosition={SetPosition}
         />
       ))}
-      <AddIcon
-        sx={{
-          float: "right",
-          background: "e4e4e4",
-          borderRadius: "5px",
-          cursor: "pointer",
-          fontSize: "30px",
-          border: "1px solid black",
+
+      <div
+        style={{
+          textAlign: "center",
+          width: "300px",
+          height: "250px",
+          boxShadow: "5px 5px 20px rgba(0, 0, 0, .3)",
         }}
-        onClick={AddMemo}
-      />
+      >
+        <span
+          style={{
+            display: "block",
+            fontSize: "30px",
+            height: "200px",
+            lineHeight: "200px",
+          }}
+        >
+          Sticky Note
+        </span>
+        <AddIcon
+          sx={{
+            color: "white",
+            background: "#f4d3ad",
+            width: "100%",
+            cursor: "pointer",
+            height: "50px",
+          }}
+          onClick={AddMemo}
+        />
+      </div>
     </>
   );
 }
