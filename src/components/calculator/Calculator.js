@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Calculator.style.scss";
-import Screen from "./Screen";
-import KeypadsWrapper from "./KeypadsWrapper";
-import Keypads from "./Keypads";
-import CalcProvider from "./CalcContext";
+import Screen from "./component/Screen";
+import KeypadsWrapper from "./component/KeypadsWrapper";
+import Keypads from "./component/Keypads";
+import CalcProvider from "./component/CalcContext";
 
 const Values = [
   ["%", "π", "C", "del"],
@@ -21,7 +21,7 @@ const Calculator = () => {
     <CalcProvider>
       <div id="wrapper">
         <div className="calc_top">
-          <div className="calc_header">
+          <div className="top calc_header">
             <h2>계산기</h2>
             <button
               type="button"

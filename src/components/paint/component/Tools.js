@@ -134,17 +134,6 @@ const Tools = () => {
 
   return (
     <>
-      <div className="top_page">
-        <p>🎨 그림판</p>
-        <button
-          type="button"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          ✕
-        </button>
-      </div>
       <div className="header">
         <Items handleDrawing={handleDrawing} />
         <Brush handleDrawing={handleDrawing} />

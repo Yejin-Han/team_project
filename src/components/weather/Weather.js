@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Weather.style.scss";
 import Search from "./Search";
-import CurrentWeather from "./CurrentWeather";
-import Forecast from "./Forecast";
-import { weatherURL, weatherAPIKey } from "./GetAPI";
+import CurrentWeather from "./component/CurrentWeather";
+import Forecast from "./component/Forecast";
+import { weatherURL, weatherAPIKey } from "./component/GetAPI";
 
 const Weather = () => {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Weather = () => {
   console.log(current, forecast);
   return (
     <div className="weather_container">
-      <div className="weather_top">
+      <div className="top weather_top">
         <h2>🌎 세계날씨</h2>
         <button
           type="button"
