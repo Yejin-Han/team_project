@@ -4,54 +4,60 @@ import { useNavigate } from "react-router-dom";
 const Main = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div id="app_list">
       <div
-        className="memo"
+        className="menu_wrapper memo"
         onClick={() => {
           navigate("/memo");
         }}
       >
-        메모
+        <div className="menu"></div>
+        <h2>메모</h2>
       </div>
       <div
-        className="calendar"
+        className="menu_wrapper calendar"
         onClick={() => {
           navigate("/calendar");
         }}
       >
-        달력
+        <div className="menu"></div>
+        <h2>달력</h2>
       </div>
       <div
-        className="paint"
+        className="menu_wrapper paint"
         onClick={() => {
           navigate("/paint");
         }}
       >
-        그림판
+        <div className="menu"></div>
+        <h2>그림판</h2>
       </div>
       <div
-        className="calculator"
+        className="menu_wrapper calculator"
         onClick={() => {
           navigate("/calculator");
         }}
       >
-        계산기
+        <div className="menu"></div>
+        <h2>계산기</h2>
       </div>
       <div
-        className="currency"
+        className="menu_wrapper currency"
         onClick={() => {
           navigate("/currency");
         }}
       >
-        환율계산기
+        <div className="menu"></div>
+        <h2>환율계산기</h2>
       </div>
       <div
-        className="weather"
+        className="menu_wrapper weather"
         onClick={() => {
           navigate("/weather");
         }}
       >
-        날씨
+        <div className="menu"></div>
+        <h2>날씨</h2>
       </div>
     </div>
   );
