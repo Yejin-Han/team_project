@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Canvas from "./Canvas";
 import Items from "./Items";
 import Brush from "./Brush";
@@ -72,13 +71,13 @@ export const useOnDraw = (canvasRef, onDraw) => {
 };
 
 const Tools = () => {
-  const navigate = useNavigate();
   const canvasRef = useRef();
   const [drawing, setDrawing] = useState({
     tool: "pencil",
     weight: "normal",
     color: "black",
   });
+  const [imgFile, setImgFile] = useState(null);
 
   const clearCanvas = () => {
     if (canvasRef.current) {
@@ -101,9 +100,12 @@ const Tools = () => {
       const ctx = canvasRef.current.getContext("2d");
       console.log(e.target.files);
       const fileUrl = e.target.files[0];
-      const imgUrl = URL.createObjectURL(fileUrl);
+      const reader = new FileReader();
+      const readUrl = reader.readAsDataURL(fileUrl);
+      /* const tempUrl = URL.createObjectURL(fileUrl); */
+      /* const imgUrl = window.URL.revokeObjectURL(fileUrl); */
       const image = new Image();
-      image.src = imgUrl;
+      image.src = readUrl;
       image.onload = () => {
         ctx.drawImage(
           image,
@@ -155,7 +157,7 @@ const Tools = () => {
             <input
               type="file"
               id="imgFile"
-              accept="img/*"
+              accept="image/*"
               onChange={openImg.bind(this)}
             />
           </label>

@@ -46,8 +46,8 @@ const CurrentWeather = ({ data }) => {
           <p className="city">{data.city}</p>
         </div>
         <img
-          src={`img/weather/${data.weather[0].icon}.png`}
-          alt="weather"
+          src={require(`../img/${data.weather[0].icon}.png`)}
+          alt={data.weather[0].description}
           className="weather_icon"
         />
       </div>

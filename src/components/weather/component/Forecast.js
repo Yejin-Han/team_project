@@ -34,6 +34,7 @@ const timeFor3Hours = (now) => {
   } else if (now >= 21 && now < 24) {
     idx = 6;
   }
+  console.log(idx);
 };
 
 const degCheck = (deg) => {
@@ -89,9 +90,9 @@ const Forecast = ({ data }) => {
               <AccordionItemButton>
                 <div className="time_item">
                   <img
-                    alt="weather"
+                    alt={item.weather[0].description}
                     className="icon_s"
-                    src={`img/weather/${item.weather[0].icon}.png`}
+                    src={require(`../img/${item.weather[0].icon}.png`)}
                   />
                   <label className="times">{forecastTimeLine[idx]}</label>
                   <label className="time_temp">
