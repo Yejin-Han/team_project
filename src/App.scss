@@ -37,51 +37,6 @@ button {
   font-family: "Roboto", "Noto Sans KR", "맑은 고딕", sans-serif;
 }
 
-#app_list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-}
-
-.menu_wrapper {
-  cursor: pointer;
-  .menu {
-    width: 6.25rem;
-    height: 6.25rem;
-    background: url("/img/star1.png") no-repeat;
-    background-size: 100% 100%;
-  }
-  h2 {
-    font-size: 1rem;
-    text-align: center;
-    margin-top: 0.4rem;
-  }
-  &:nth-child(2) > .menu {
-    background-image: url("/img/star2.png");
-  }
-  &:nth-child(3) > .menu {
-    background-image: url("/img/star3.png");
-  }
-  &:nth-child(4) > .menu {
-    background-image: url("/img/star4.png");
-  }
-  &:nth-child(5) > .menu {
-    background-image: url("/img/star5.png");
-  }
-  &:nth-child(6) > .menu {
-    background-image: url("/img/star6.png");
-  }
-  &:nth-child(7) > .menu {
-    background-image: url("/img/star7.png");
-  }
-  &:nth-child(8) > .menu {
-    background-image: url("/img/star8.png");
-  }
-  &:nth-child(9) > .menu {
-    background-image: url("/img/star9.png");
-  }
-}
-
 .top {
   display: flex;
   justify-content: space-between;
