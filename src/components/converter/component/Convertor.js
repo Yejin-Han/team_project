@@ -1,7 +1,9 @@
 import { useState } from "react";
-// import "./Convertor.css";
+import { useNavigate } from "react-router-dom";
+import "../Currency.style.scss";
 
 const Convertor = (props) => {
+  const navigate = useNavigate();
   const {
     currencyOptions,
     firstCurrency,
@@ -30,11 +32,15 @@ const Convertor = (props) => {
     setConvertTo(firstCurrency);
   };
 
+  const onClick = () => {
+    navigate("/");
+  };
+
   return (
     <div className="container">
       <div className="row">
-        <div style={{ padding: "30px", background: "#ececec" }}>
-          <Card title="환율 계산기" bordered={false} style={{ width: 550 }}>
+        <div className="row-bg">
+          <Card title="💴 환율계산기" extra={<a onClick={onClick}>✕</a>}>
             <h5>
               {amount} {firstCurrency} 의 {convertTo} 환율 계산 결과
             </h5>
@@ -42,7 +48,7 @@ const Convertor = (props) => {
               {amount === "" ? "0" : result === "" ? "계산중..." : result}
             </h3>
             <p>As of {date === "" ? "" : date}</p>
-            <div>
+            <div className="in-op">
               <div>
                 <form>
                   <input
@@ -50,7 +56,6 @@ const Convertor = (props) => {
                     value={amount}
                     onChange={changeInputHandler}
                   />
-
                   <select
                     name="base"
                     value={firstCurrency}
@@ -88,8 +93,12 @@ const Convertor = (props) => {
                 </form>
               </div>
               <div>
-                <h1 onClick={swapHandler} style={{ cursor: "pointer" }}>
-                  &#8595; &#8593;
+                <h1
+                  className="swap"
+                  onClick={swapHandler}
+                  style={{ cursor: "pointer" }}
+                >
+                  ⇵
                 </h1>
               </div>
             </div>

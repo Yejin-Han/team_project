@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Convertor from "./component/Convertor";
-import { Card } from "antd";
+import { Card, Button } from "antd";
 
 const IMPORT_URL = "https://api.exchangerate.host/latest";
 
-function App() {
+function Currency() {
   const [currencyOptions, setCurrencyOptions] = useState([]);
   const [amount, setAmount] = useState("");
   const [firstCurrency, setFirstCurrency] = useState("");
@@ -64,9 +64,10 @@ function App() {
         date={date}
         onSwap={swapHandler}
         Card={Card}
+        Button={Button}
       />
     </div>
   );
 }
 
-export default App;
+export default Currency;
