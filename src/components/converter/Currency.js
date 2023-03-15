@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Convertor from "./component/Convertor";
-import { Card, Button } from "antd";
+import { Card } from "antd";
 
 const IMPORT_URL = "https://api.exchangerate.host/latest";
 
@@ -32,7 +32,7 @@ function Currency() {
           `https://api.exchangerate.host/latest?base=${firstCurrency}&symbols=${convertTo}`
         );
         setDate(response.data.date);
-        setResult((response.data.rates[convertTo] * amount).toFixed(4));
+        setResult((response.data.rates[convertTo] * amount).toFixed(3));
       };
       getCurrencyConverter();
     }
@@ -64,7 +64,6 @@ function Currency() {
         date={date}
         onSwap={swapHandler}
         Card={Card}
-        Button={Button}
       />
     </div>
   );

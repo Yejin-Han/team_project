@@ -16,20 +16,26 @@ const Convertor = (props) => {
     onSwap,
   } = props;
 
-  const [convertTo, setConvertTo] = useState(currencyOptions[1]);
+  const [convertTo1, setConvertTo1] = useState(firstCurrency);
+  const [convertTo2, setConvertTo2] = useState(currencyOptions[1]);
 
   const changeInputHandler = (e) => {
     onChangeAmount(e);
   };
 
-  const selectHandler = (e) => {
-    setConvertTo(e.target.value);
+  const selectHandler1 = (e) => {
+    setConvertTo1(e.target.value);
     onChangeCurrency(e);
+  };
+
+  const selectHandler2 = (e) => {
+    setConvertTo2(e.target.value);
   };
 
   const swapHandler = (e) => {
     onSwap(e);
-    setConvertTo(firstCurrency);
+    setConvertTo1(convertTo2);
+    setConvertTo2(convertTo1);
   };
 
   const onClick = () => {
@@ -42,7 +48,8 @@ const Convertor = (props) => {
         <div className="row-bg">
           <Card title="💴 환율계산기" extra={<a onClick={onClick}>✕</a>}>
             <h5>
-              {amount} {firstCurrency} 의 {convertTo} 환율 계산 결과
+              {amount || 0} {convertTo1 || setConvertTo1("USD")} 의{" "}
+              {convertTo2 || setConvertTo2("KRW")} 환율 계산 결과
             </h5>
             <h3>
               {amount === "" ? "0" : result === "" ? "계산중..." : result}
@@ -58,8 +65,8 @@ const Convertor = (props) => {
                   />
                   <select
                     name="base"
-                    value={firstCurrency}
-                    onChange={(e) => onChangeCurrency(e)}
+                    value={convertTo1 || setConvertTo1("USD")}
+                    onChange={selectHandler1}
                   >
                     {currencyOptions.map((currency, key) => (
                       <option key={key} value={currency}>
@@ -79,10 +86,11 @@ const Convertor = (props) => {
                         : result
                     }
                   />
+
                   <select
                     name="convertTo"
-                    value={convertTo}
-                    onChange={selectHandler}
+                    value={convertTo2 || setConvertTo2("KRW")}
+                    onChange={selectHandler2}
                   >
                     {currencyOptions.map((currency, key) => (
                       <option key={key} value={currency}>
