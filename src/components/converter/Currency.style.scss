@@ -5,17 +5,20 @@
   border-radius: 10px;
   .ant-card-head {
     background-color: $pointColor2;
+    font-family: "Roboto", "Noto Sans KR", "맑은 고딕", sans-serif;
     a {
       font-size: 15px;
       color: #fff;
     }
     .ant-card-head-title {
       font-size: 20px;
+      color: #fff;
     }
   }
   .ant-card-body {
     color: #fff;
     background: #353434;
+    font-family: "Roboto", "Noto Sans KR", "맑은 고딕", sans-serif;
   }
   h5 {
     font-size: 17px;

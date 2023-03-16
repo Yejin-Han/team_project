@@ -54,13 +54,13 @@ const Main = () => {
             <h2>달력</h2>
           </div>
           <div
-            className="menu_wrapper account"
+            className="menu_wrapper paint"
             onClick={() => {
-              navigate("/");
+              navigate("/paint");
             }}
           >
             <div className="menu"></div>
-            <h2>가계부(준비중)</h2>
+            <h2>그림판</h2>
           </div>
           <div
             className="menu_wrapper calculator"
@@ -99,13 +99,13 @@ const Main = () => {
             <h2>날씨</h2>
           </div>
           <div
-            className="menu_wrapper paint"
+            className="menu_wrapper account"
             onClick={() => {
-              navigate("/paint");
+              navigate("/");
             }}
           >
             <div className="menu"></div>
-            <h2>그림판</h2>
+            <h2>가계부(준비중)</h2>
           </div>
           <div
             className="menu_wrapper unknown"

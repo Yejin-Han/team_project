@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../Currency.style.scss";
 
 const Convertor = (props) => {
   const navigate = useNavigate();

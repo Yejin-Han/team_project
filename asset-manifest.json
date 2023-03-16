@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.9ce49e6b.css",
-    "main.js": "/static/js/main.61ec639a.js",
-    "static/js/787.fd77b4ce.chunk.js": "/static/js/787.fd77b4ce.chunk.js",
-    "static/media/star8.png": "/static/media/star8.410da7f4b6b696b9c25c.png",
-    "static/media/star9.png": "/static/media/star9.52ee71774748e2420941.png",
-    "static/media/star5.png": "/static/media/star5.0c66a1f1bc804e2a4885.png",
-    "static/media/star3.png": "/static/media/star3.e6408fce07de50a45114.png",
-    "static/media/star6.png": "/static/media/star6.df4243402c712672d0c3.png",
-    "static/media/star4.png": "/static/media/star4.978d830c55a1b992e9a4.png",
-    "static/media/star2.png": "/static/media/star2.8ba8ab39d03ecefda34c.png",
-    "static/media/star1.png": "/static/media/star1.ba360221265784baac9b.png",
-    "static/media/star7.png": "/static/media/star7.b6806f5590339f9a7905.png",
-    "index.html": "/index.html",
-    "main.9ce49e6b.css.map": "/static/css/main.9ce49e6b.css.map",
-    "main.61ec639a.js.map": "/static/js/main.61ec639a.js.map",
-    "787.fd77b4ce.chunk.js.map": "/static/js/787.fd77b4ce.chunk.js.map"
+    "main.css": "/team_project/static/css/main.e55c9639.css",
+    "main.js": "/team_project/static/js/main.6525f93b.js",
+    "static/js/787.fd77b4ce.chunk.js": "/team_project/static/js/787.fd77b4ce.chunk.js",
+    "static/media/star8.png": "/team_project/static/media/star8.410da7f4b6b696b9c25c.png",
+    "static/media/star9.png": "/team_project/static/media/star9.52ee71774748e2420941.png",
+    "static/media/star5.png": "/team_project/static/media/star5.0c66a1f1bc804e2a4885.png",
+    "static/media/star3.png": "/team_project/static/media/star3.e6408fce07de50a45114.png",
+    "static/media/star6.png": "/team_project/static/media/star6.df4243402c712672d0c3.png",
+    "static/media/star4.png": "/team_project/static/media/star4.978d830c55a1b992e9a4.png",
+    "static/media/star2.png": "/team_project/static/media/star2.8ba8ab39d03ecefda34c.png",
+    "static/media/star1.png": "/team_project/static/media/star1.ba360221265784baac9b.png",
+    "static/media/star7.png": "/team_project/static/media/star7.b6806f5590339f9a7905.png",
+    "index.html": "/team_project/index.html",
+    "main.e55c9639.css.map": "/team_project/static/css/main.e55c9639.css.map",
+    "main.6525f93b.js.map": "/team_project/static/js/main.6525f93b.js.map",
+    "787.fd77b4ce.chunk.js.map": "/team_project/static/js/787.fd77b4ce.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ce49e6b.css",
-    "static/js/main.61ec639a.js"
+    "static/css/main.e55c9639.css",
+    "static/js/main.6525f93b.js"
   ]
 }

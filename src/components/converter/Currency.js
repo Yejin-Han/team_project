@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Convertor from "./component/Convertor";
 import { Card } from "antd";
+import "./Currency.style.scss";
 
 const IMPORT_URL = "https://api.exchangerate.host/latest";
 
