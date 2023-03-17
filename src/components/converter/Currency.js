@@ -18,14 +18,16 @@ function Currency() {
     fetch(IMPORT_URL)
       .then((res) => res.json())
       .then((data) => {
-        setFirstCurrency("KRW");
-        setCurrencyOptions([data.base, ...Object.keys(data.rates)]);
-        setConvertTo(Object.keys(data.rates)[0]);
+        const rates = Object.keys(data.rates);
+        setConvertTo("KRW");
+        setCurrencyOptions([...rates, data.base]);
+        setFirstCurrency(data.base);
       });
   }, []);
 
   useEffect(() => {
-    if (isNaN(amount)) {
+    const numericAmount = Number(amount);
+    if (isNaN(numericAmount)) {
       return;
     } else {
       const getCurrencyConverter = async () => {
@@ -33,7 +35,7 @@ function Currency() {
           `https://api.exchangerate.host/latest?base=${firstCurrency}&symbols=${convertTo}`
         );
         setDate(response.data.date);
-        setResult((response.data.rates[convertTo] * amount).toFixed(3));
+        setResult((response.data.rates[convertTo] * numericAmount).toFixed(4));
       };
       getCurrencyConverter();
     }
