@@ -48,8 +48,8 @@ const Convertor = (props) => {
         <div className="row-bg">
           <Card title="💴 환율계산기" extra={<a onClick={onClick}>✕</a>}>
             <h5>
-              {amount || 0} {convertTo1 || setConvertTo1("USD")} 의{" "}
-              {convertTo2 || setConvertTo2("KRW")} 환율 계산 결과
+              {amount || 0} {convertTo1} 의 {convertTo2 || setConvertTo2("KRW")}{" "}
+              환율 계산 결과
             </h5>
             <h3>
               {amount === "" ? "0" : result === "" ? "계산중..." : result}
