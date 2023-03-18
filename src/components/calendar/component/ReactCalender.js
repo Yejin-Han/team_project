@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Calendar from "react-calendar";
 import moment from "moment";
 import "../MainCalender.style.scss";
 
 const ReactCalender = () => {
+  const navigate = useNavigate();
   const [date, setDate] = useState(new Date());
   const holiDay = [
     "01-01-2023",
@@ -27,29 +29,42 @@ const ReactCalender = () => {
 
   const selectedDay = moment(date).format("YYYY-MM-DD");
 
+  const closeCalendar = () => {
+    navigate("/");
+  };
+
   return (
     <div>
-      <h1>React-calendar</h1>
       <div>
-        <Calendar
-          onChange={setDate}
-          value={date}
-          locale="en-En"
-          tileClassName={({ date }) => {
-            let day = date.getDate(); //날짜 출력
-            let month = date.getMonth() + 1;
-            if (date.getMonth() < 10) {
-              month = "0" + month;
-            }
-            if (date.getDate() < 10) {
-              day = "0" + day;
-            }
-            const realDate = day + "-" + month + "-" + date.getFullYear();
-            if (holiDay.find((i) => i === realDate)) {
-              return "highlight";
-            }
-          }}
-        />
+        <div className="calendar-wrapper">
+          <div className="calendar-header">
+            <h1> 🗓️ 달력 </h1>
+            <button onClick={closeCalendar} className="close-button">
+              ✕
+            </button>
+          </div>
+          <div className="calendar-body">
+            <Calendar
+              onChange={setDate}
+              value={date}
+              locale="ko-KR"
+              tileClassName={({ date }) => {
+                let day = date.getDate(); //날짜 출력
+                let month = date.getMonth() + 1;
+                if (date.getMonth() < 10) {
+                  month = "0" + month;
+                }
+                if (date.getDate() < 10) {
+                  day = "0" + day;
+                }
+                const realDate = day + "-" + month + "-" + date.getFullYear();
+                if (holiDay.find((i) => i === realDate)) {
+                  return "highlight";
+                }
+              }}
+            />
+          </div>
+        </div>
       </div>
       <div>
         <span>Selected Date : </span>
