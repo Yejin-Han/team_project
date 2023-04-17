@@ -98,14 +98,13 @@ const Tools = () => {
   const openImg = (e) => {
     if (canvasRef.current) {
       const ctx = canvasRef.current.getContext("2d");
-      console.log(e.target.files);
+      if (!e.target.files || e.target.files.length === 0) {
+        return;
+      }
       const fileUrl = e.target.files[0];
-      const reader = new FileReader();
-      const readUrl = reader.readAsDataURL(fileUrl);
-      /* const tempUrl = URL.createObjectURL(fileUrl); */
-      /* const imgUrl = window.URL.revokeObjectURL(fileUrl); */
+      const imgUrl = URL.createObjectURL(fileUrl);
       const image = new Image();
-      image.src = readUrl;
+      image.src = imgUrl;
       image.onload = () => {
         ctx.drawImage(
           image,
@@ -115,6 +114,7 @@ const Tools = () => {
           canvasRef.current.height
         );
       };
+      return () => URL.revokeObjectURL(fileUrl);
     }
   };
 

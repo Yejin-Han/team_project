@@ -78,7 +78,7 @@ const Main = () => {
             }}
           >
             <div className="menu"></div>
-            <h2>시계(준비 중)</h2>
+            <h2>시계(준비중)</h2>
           </div>
           <div
             className="menu_wrapper currency"
@@ -122,7 +122,7 @@ const Main = () => {
               navigate("/");
             }}
           >
-            <button type="button">별점 남기기</button>
+            <button type="button">별점 남기기(준비중)</button>
           </div>
         </div>
       </div>
